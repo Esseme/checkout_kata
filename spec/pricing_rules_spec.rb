@@ -42,4 +42,14 @@ RSpec.describe PricingRules do
       expect(price).to eq 130
     end
   end
+
+  describe "#has_dicount_price" do
+    it "checks if an item has a discount price" do
+      pricing_rules = PricingRules.new("A" => {discount_price: 130})
+      
+      has_discount = pricing_rules.has_discount_price("A")
+
+      expect(has_discount).to be(true)
+    end
+  end
 end

@@ -18,4 +18,8 @@ class PricingRules
   def price_for(item, count)
     count/discount_count(item) * discount_price(item) + count% discount_count(item) * unit_price(item) 
   end
+
+  def has_discount_price(item)
+    @rules[item].has_key?(:discount_price)
+  end
 end
